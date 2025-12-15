@@ -514,64 +514,143 @@ import logo from "../img/logo_notext.png"
             letter-spacing: 0.3px;
         }
 
-        .comparison {
-            background: #0a0e17;
-            padding: 100px 0;
-        }
+.comparison {
+    background: #0a0e17;
+    padding: 100px 0;
+}
 
-        .comparison-table {
-            margin-top: 80px;
-            background: #0d1117;
-            border: 1px solid rgba(0, 157, 255, 0.08);
-        }
+.comparison-table {
+    margin-top: 80px;
+    background: #0d1117;
+    border: 1px solid rgba(0, 157, 255, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+}
 
-        .comparison-row {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            padding: 20px 40px;
-            border-bottom: 1px solid rgba(0, 157, 255, 0.08);
-            transition: background 0.2s;
-        }
+/* Desktop: Grid layout */
+.comparison-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(0, 157, 255, 0.08);
+    transition: background 0.2s;
+}
 
-        .comparison-row:first-child {
-            background: rgba(0, 157, 255, 0.05);
-            color: white;
-            font-weight: 600;
-            font-size: 13px;
-            letter-spacing: 0.5px;
-        }
+.comparison-row:first-child {
+    background: rgba(0, 157, 255, 0.05);
+    color: white;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
 
-        .comparison-row:hover:not(:first-child) {
-            background: rgba(0, 157, 255, 0.03);
-        }
+.comparison-row:hover:not(:first-child) {
+    background: rgba(0, 157, 255, 0.03);
+}
 
-        .comparison-row:last-child {
-            border-bottom: none;
-        }
+.comparison-row:last-child {
+    border-bottom: none;
+}
 
-        .comparison-row div {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            color: #8892a6;
-        }
+.comparison-row div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #8892a6;
+}
 
-        .comparison-row div:first-child {
-            justify-content: flex-start;
-            color: #c9d1d9;
-        }
+.comparison-row div:first-child {
+    justify-content: flex-start;
+    color: #c9d1d9;
+    font-weight: 500;
+}
 
-        .check {
-            color: #3fb950;
-            font-weight: 500;
-        }
+.check {
+    color: #3fb950;
+    font-weight: 600;
+}
 
-        .cross {
-            color: #f85149;
-            font-weight: 500;
-        }
+.cross {
+    color: #f85149;
+    font-weight: 600;
+}
 
+/* Mobile: Card layout */
+@media (max-width: 768px) {
+    .comparison-table {
+        display: block;
+        margin-top: 60px;
+        border: none;
+        background: transparent;
+    }
+    
+    /* Hide original header row on mobile */
+    .comparison-row:first-child {
+        display: none;
+    }
+    
+    .comparison-row {
+        display: block;
+        grid-template-columns: 1fr;
+        padding: 0;
+        margin-bottom: 24px;
+        border-bottom: none;
+        background: #0d1117;
+        border: 1px solid rgba(0, 157, 255, 0.08);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .comparison-row:last-child {
+        margin-bottom: 0;
+    }
+    
+    /* Mobile card layout */
+    .comparison-row > div {
+        display: flex;
+        padding: 16px 20px;
+        justify-content: flex-start;
+        text-align: left;
+        border-bottom: 1px solid rgba(0, 157, 255, 0.05);
+    }
+    
+    .comparison-row > div:first-child {
+        background: rgba(0, 157, 255, 0.05);
+        color: white;
+        font-weight: 600;
+        font-size: 14px;
+        justify-content: flex-start;
+        padding: 16px 20px;
+        border-bottom: 1px solid rgba(0, 157, 255, 0.1);
+    }
+    
+    .comparison-row > div:last-child {
+        border-bottom: none;
+    }
+    
+    /* Add labels for mobile */
+    .comparison-row > div:nth-child(2):before {
+        content: "MIMIR: ";
+        color: #009DFF;
+        font-weight: 600;
+        margin-right: 8px;
+        min-width: 60px;
+    }
+    
+    .comparison-row > div:nth-child(3):before {
+        content: "OTHERS: ";
+        color: #8892a6;
+        font-weight: 600;
+        margin-right: 8px;
+        min-width: 60px;
+    }
+    
+    /* Mobile specific text adjustments */
+    .check, .cross {
+        font-size: 13px;
+    }
+}
         .final-cta {
             background: #0a0e17;
             padding: 120px 0;
